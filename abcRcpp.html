@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Michael Lerch" />
+  <title>ABC and Rcpp</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">ABC and Rcpp</h1>
+    <h2 class="author">Michael Lerch</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section><section id="bayesian-analysis" class="titleslide slide level1"><h1>Bayesian Analysis</h1></section><section class="slide level2">
+
+<h3 id="parameters-and-data">Parameters and data</h3>
+<ul>
+<li><p>What is a parameter</p></li>
+<li><p>What is data</p></li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="prior">Prior</h3>
+<p>What it is</p>
+</section><section class="slide level2">
+
+<h3 id="likelihood">Likelihood</h3>
+</section><section class="slide level2">
+
+<h3 id="bayes-rule">Bayes Rule</h3>
+</section><section class="slide level2">
+
+<h3 id="posterior">Posterior</h3>
+</section><section class="slide level2">
+
+<h3 id="using-the-posterior">Using the posterior</h3>
+</section><section class="slide level2">
+
+<h3 id="denominator">Denominator</h3>
+</section></section>
+<section><section id="sampling-the-posterior" class="titleslide slide level1"><h1>Sampling the posterior</h1></section><section class="slide level2">
+
+<ul>
+<li><p>Metropolis-Hastings</p></li>
+<li><p>Gibbs</p></li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="rejection-sampling">“Rejection sampling”</h3>
+<p>We want the posterior: <span class="math">\(P(\theta| x)\)</span>. We can sample the joint pretty easily, <span class="math">\(P(\theta, x) = P(\theta) P(x | \theta)\)</span>. Now just constrain the <span class="math">\(P(\theta, x)\)</span> samples to those where <span class="math">\(x = x_{obs}\)</span>.</p>
+</section><section class="slide level2">
+
+<h3 id="algorithm">Algorithm</h3>
+<ol type="1">
+<li>Sample <span class="math">\(\theta^*\)</span> from the prior: <span class="math">\(P(\theta)\)</span></li>
+<li>Sample <span class="math">\(x^*\)</span> from the likelihood: <span class="math">\(P(x|\theta^*)\)</span></li>
+<li>If <span class="math">\(x^*\)</span> is equal to the observed data, keep <span class="math">\(\theta^*\)</span>, if not reject.</li>
+</ol>
+</section><section class="slide level2">
+
+<h3 id="aint-nobody-got-time-for-that">Ain’t nobody got time for that</h3>
+</section><section class="slide level2">
+
+<h3 id="speeding-it-up">Speeding it up</h3>
+<ol type="1">
+<li><p>Summary statistics (perhaps sufficient for likelihood statistics)</p></li>
+<li><p>Add some wiggle room</p></li>
+</ol>
+</section><section class="slide level2">
+
+<h3 id="why-use-abc">Why use ABC?</h3>
+<p>Complicated likelihood</p>
+</section></section>
+<section><section id="rcpp" class="titleslide slide level1"><h1>RCpp</h1></section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

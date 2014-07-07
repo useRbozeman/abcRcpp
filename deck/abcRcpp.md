@@ -9,7 +9,6 @@ Bayesian Analysis
 ### Parameters and data ###
 
 - What is a parameter
-
 - What is data
 
 ----------------------
@@ -72,7 +71,6 @@ x)$ samples to those where $x = x_{obs}$.
 ### Speeding it up ###
 
 1. Summary statistics (perhaps sufficient for likelihood statistics)
-
 2. Add some wiggle room
 
 ----------------------
@@ -83,6 +81,8 @@ Complicated likelihood
 
 Rcpp
 ====
+
+----------------------
 
 ### Basic idea ###
 
@@ -97,4 +97,21 @@ Because C++ is faster than R
 No but it makes things a bit easier
 
 ----------------------
+
+### How scared should I be of C++? ###
+
+- Semi-colons at the end of lines
+- Equal signs, not assignment arrows
+- Type definitions
+    - Integer, double, vectors
+    - More power == More responsibility
+
+----------------------
+
+### Example ###
+
+Simulation study
+
+
+
 

@@ -218,3 +218,8 @@ No but it makes things a bit easier
 
 ### Example ###
 
+<br />
+
+Fibonacci sequence
+
+1, 1, 2, 3, 5, 8, 13, 21, 34, ...

@@ -26,17 +26,15 @@ for (i in 1:length(N0))
 {
     for (j in 1:length(S0))
     {
+        out <- c(N0[i], S0[j])
         for (t in 1:5)
         {
-            out <- evolve(N0[i], S0[j], Food, kappa_g, kappa_d)
+            Food <- runif(1, 2000, 3000)
             out <- evolve(out[1], out[2], Food, kappa_g, kappa_d)
-            out <- evolve(out[1], out[2], Food, kappa_g, kappa_d)
-            out <- evolve(out[1], out[2], Food, kappa_g, kappa_d)
-            out <- evolve(out[1], out[2], Food, kappa_g, kappa_d)
-            if (out[2] > 12 & out[1] > 1)
-            {
-                N12[i, j] <- out[1] / (N0[i] * S0[j] ^ 2)
-            }
+        }
+        if (out[2] > 12 & out[1] > 1)
+        {
+            N12[i, j] <- out[1] / (N0[i] * S0[j] ^ 2)
         }
     }
 }

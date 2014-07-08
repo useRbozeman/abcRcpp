@@ -211,12 +211,10 @@ No but it makes things a bit easier
 >- Equal signs, not assignment arrows
 >- Semi-colons at the end of lines
 >- Indexing starts at 0
+>- For loops have a different structure
 >- Type definitions
-    - Integer, double, vectors
-    - More power == More responsibility
 
 ----------------------
 
 ### Example ###
 
-Simulation study

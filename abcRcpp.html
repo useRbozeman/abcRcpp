@@ -29,65 +29,176 @@
 
 <section><section id="bayesian-analysis" class="titleslide slide level1"><h1>Bayesian Analysis</h1></section><section class="slide level2">
 
-<h3 id="parameters-and-data">Parameters and data</h3>
+<p>Model and Likelihood</p>
+<div class="fragment">
+<figure>
+<img src="./img/model.png" />
+</figure>
+</div>
+<div class="fragment">
+<p><span class="math">\[y = m * x + b\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math">\[\mu = m * x + b\]</span></p>
+</div>
+</section><section class="slide level2">
+
+<p>Likelihood</p>
+<figure>
+<img src="./img/model.png" />
+</figure>
+<div class="fragment">
+<p><span class="math">\[y = \mu + \epsilon\]</span></p>
+<p><span class="math">\[\epsilon \sim N(0, \sigma)\]</span></p>
+</div>
+</section><section class="slide level2">
+
+<h3 id="parameters">Parameters</h3>
+<p><br /></p>
 <ul>
-<li><p>What is a parameter</p></li>
-<li><p>What is data</p></li>
+<li><p>The slope, <span class="math">\(m\)</span></p></li>
+<li><p>The intercept, <span class="math">\(b\)</span></p></li>
+<li><p>The variability, <span class="math">\(\sigma\)</span></p></li>
+<li><p>Collectively, <span class="math">\(\theta\)</span></p></li>
 </ul>
 </section><section class="slide level2">
 
-<h3 id="prior">Prior</h3>
-<p>What it is</p>
+<h3 id="likelihood">Likelihood</h3>
+<p><br /></p>
+<p><span class="math">\[P(Y | \theta)\]</span></p>
+<p><span class="math">\[P(Y | \theta, X)\]</span></p>
 </section><section class="slide level2">
 
-<h3 id="likelihood">Likelihood</h3>
+<h3 id="prior">Prior</h3>
+<figure>
+<img src="./img/prior.png" />
+</figure>
+<p><span class="math">\[P(\theta)\]</span></p>
 </section><section class="slide level2">
 
 <h3 id="bayes-rule">Bayes Rule</h3>
+<p><br /></p>
+<p><span class="math">\[P(\theta | Y) = \frac{P(Y|\theta)P(\theta)}{P(Y)}\]</span></p>
 </section><section class="slide level2">
 
 <h3 id="posterior">Posterior</h3>
+<figure>
+<img src="./img/prior.png" />
+</figure>
+<p><span class="math">\[P(\theta | Y)\]</span></p>
+</section><section class="slide level2">
+
+<h3 id="posterior-1">Posterior</h3>
+<figure>
+<img src="./img/posterior.png" />
+</figure>
+<p><span class="math">\[P(\theta | Y)\]</span></p>
 </section><section class="slide level2">
 
 <h3 id="using-the-posterior">Using the posterior</h3>
+<figure>
+<img src="./img/posterior.png" />
+</figure>
 </section><section class="slide level2">
 
 <h3 id="denominator">Denominator</h3>
+<p><br /></p>
+<p><span class="math">\[P(\theta | Y) = \frac{P(Y|\theta)P(\theta)}{P(Y)}\]</span></p>
 </section></section>
 <section><section id="sampling-the-posterior" class="titleslide slide level1"><h1>Sampling the posterior</h1></section><section class="slide level2">
 
+<h3 id="algorithms-you-may-have-heard-of">Algorithms you may have heard of</h3>
+<p><br /></p>
 <ul>
 <li><p>Metropolis-Hastings</p></li>
 <li><p>Gibbs</p></li>
 </ul>
 </section><section class="slide level2">
 
+<pre><code>curve(dnorm(x), xlim = c(-3, 3)</code></pre>
+<figure>
+<img src="./img/dnorm.png" />
+</figure>
+</section><section class="slide level2">
+
+<pre><code>plot(density(rnorm(1000)), xlim = c(-3, 3))</code></pre>
+<figure>
+<img src="./img/densrnorm.png" />
+</figure>
+</section><section class="slide level2">
+
 <h3 id="rejection-sampling">“Rejection sampling”</h3>
-<p>We want the posterior: <span class="math">\(P(\theta| x)\)</span>. We can sample the joint pretty easily, <span class="math">\(P(\theta, x) = P(\theta) P(x | \theta)\)</span>. Now just constrain the <span class="math">\(P(\theta, x)\)</span> samples to those where <span class="math">\(x = x_{obs}\)</span>.</p>
+<p><br /></p>
+<p>Sample from the joint distribution, <span class="math">\(P(\theta, Y) = P(\theta)P(Y|\theta)\)</span></p>
+<figure>
+<img src="./img/joint.png" />
+</figure>
+</section><section class="slide level2">
+
+<h3 id="rejection-sampling-1">“Rejection sampling”</h3>
+<p><br /></p>
+<p>Reject when the sampled <span class="math">\(Y\)</span> does not equal the observed</p>
+<figure>
+<img src="./img/jointreject.png" />
+</figure>
 </section><section class="slide level2">
 
 <h3 id="algorithm">Algorithm</h3>
+<p><br /></p>
 <ol type="1">
 <li>Sample <span class="math">\(\theta^*\)</span> from the prior: <span class="math">\(P(\theta)\)</span></li>
-<li>Sample <span class="math">\(x^*\)</span> from the likelihood: <span class="math">\(P(x|\theta^*)\)</span></li>
-<li>If <span class="math">\(x^*\)</span> is equal to the observed data, keep <span class="math">\(\theta^*\)</span>, if not reject.</li>
+<li>Sample <span class="math">\(Y^*\)</span> from the likelihood: <span class="math">\(P(Y|\theta^*)\)</span></li>
+<li>If <span class="math">\(Y^*\)</span> is equal to the observed data, keep <span class="math">\(\theta^*\)</span>, if not reject.</li>
 </ol>
 </section><section class="slide level2">
 
-<h3 id="aint-nobody-got-time-for-that">Ain’t nobody got time for that</h3>
+<figure>
+<img src="./img/notime.jpg" />
+</figure>
 </section><section class="slide level2">
 
 <h3 id="speeding-it-up">Speeding it up</h3>
+<p><br /></p>
 <ol type="1">
-<li><p>Summary statistics (perhaps sufficient for likelihood statistics)</p></li>
-<li><p>Add some wiggle room</p></li>
+<li>Summary statistics (perhaps sufficient)</li>
+<li>Add some wiggle room</li>
 </ol>
 </section><section class="slide level2">
 
 <h3 id="why-use-abc">Why use ABC?</h3>
+<p><br /></p>
 <p>Complicated likelihood</p>
 </section></section>
-<section><section id="rcpp" class="titleslide slide level1"><h1>RCpp</h1></section></section>
+<section><section id="rcpp" class="titleslide slide level1"><h1>Rcpp</h1></section><section class="slide level2">
+
+<h3 id="basic-idea">Basic idea</h3>
+<p><br /></p>
+<p>Write code in C++, run in R</p>
+<p>Because C++ is faster than R</p>
+</section><section class="slide level2">
+
+<h3 id="is-rcpp-necessary">Is Rcpp necessary?</h3>
+<p><br /></p>
+<p>No but it makes things a bit easier</p>
+</section><section class="slide level2">
+
+<h3 id="how-scared-should-i-be-of-c">How scared should I be of C++?</h3>
+<p><br /></p>
+<ul>
+<li class="fragment">Equal signs, not assignment arrows</li>
+<li class="fragment">Semi-colons at the end of lines</li>
+<li class="fragment">Indexing starts at 0</li>
+<li class="fragment">Type definitions
+<ul>
+<li class="fragment">Integer, double, vectors</li>
+<li class="fragment">More power == More responsibility</li>
+</ul></li>
+</ul>
+</section><section class="slide level2">
+
+<h3 id="example">Example</h3>
+<p>Simulation study</p>
+</section></section>
     </div>
   </div>
 

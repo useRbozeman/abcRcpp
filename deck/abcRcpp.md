@@ -223,3 +223,23 @@ No but it makes things a bit easier
 Fibonacci sequence
 
 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+
+ABC and Rcpp
+============
+
+----------------------
+
+### Types and functions ###
+
+- Types
+    - int
+    - double
+    - NumericVector
+    - IntegerVector
+- Functions
+    - Type the output
+    - export with preceding `// [[Rcpp::export]]`
+
+----------------------
+
+

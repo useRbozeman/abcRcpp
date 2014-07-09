@@ -1,6 +1,8 @@
 # Calculate fibonacci numbers
 #
 
+N <- 32
+
 # R
 fibonacciR <- function(n)
 {
@@ -12,9 +14,20 @@ fibonacciR <- function(n)
     }
 }
 
-fibonacciR(33)
+fibonacciR(N)
 
 # cpp
 require(Rcpp)
 sourceCpp("./fibonacci.cpp")
-fibonaccipp(32)
+fibonaccipp(N)
+
+a <- numeric(N)
+for (i in 1:N)
+{
+    if (i == 1 | i == 2)
+    {
+        a[i] <- 1
+    } else {
+        a[i] <- a[i - 1] + a[i - 2]
+    }
+}

@@ -88,7 +88,7 @@ $$P(\theta | Y)$$
 
 ----------------------
 
-### Denominator ###
+### The Denominator ###
 <br />
 
 $$P(\theta | Y) = \frac{P(Y|\theta)P(\theta)}{P(Y)}$$

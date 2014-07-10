@@ -171,7 +171,8 @@ Reject when the sampled $Y$ does not equal the observed
 
 <br />
 
-Complicated likelihoods
+Cases where we can simulate data, we know the data generating process, but
+might have difficulty writing down a likelihood.
 
 Rcpp
 ====

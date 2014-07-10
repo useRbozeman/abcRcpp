@@ -30,27 +30,19 @@
 <section><section id="bayesian-analysis" class="titleslide slide level1"><h1>Bayesian Analysis</h1></section><section class="slide level2">
 
 <p>Model and Likelihood</p>
-<div class="fragment">
 <figure>
 <img src="./img/model.png" />
 </figure>
-</div>
-<div class="fragment">
 <p><span class="math">\[y = m * x + b\]</span></p>
-</div>
-<div class="fragment">
 <p><span class="math">\[\mu = m * x + b\]</span></p>
-</div>
 </section><section class="slide level2">
 
 <p>Likelihood</p>
 <figure>
 <img src="./img/model.png" />
 </figure>
-<div class="fragment">
 <p><span class="math">\[y = \mu + \epsilon\]</span></p>
 <p><span class="math">\[\epsilon \sim N(0, \sigma)\]</span></p>
-</div>
 </section><section class="slide level2">
 
 <h3 id="parameters">Parameters</h3>
@@ -81,14 +73,14 @@
 <p><span class="math">\[P(\theta | Y) = \frac{P(Y|\theta)P(\theta)}{P(Y)}\]</span></p>
 </section><section class="slide level2">
 
-<h3 id="posterior">Posterior</h3>
+<h3 id="prior---posterior">Prior -&gt; Posterior</h3>
 <figure>
 <img src="./img/prior.png" />
 </figure>
 <p><span class="math">\[P(\theta | Y)\]</span></p>
 </section><section class="slide level2">
 
-<h3 id="posterior-1">Posterior</h3>
+<h3 id="prior---posterior-1">Prior -&gt; Posterior</h3>
 <figure>
 <img src="./img/posterior.png" />
 </figure>
@@ -101,7 +93,7 @@
 </figure>
 </section><section class="slide level2">
 
-<h3 id="denominator">Denominator</h3>
+<h3 id="the-denominator">The Denominator</h3>
 <p><br /></p>
 <p><span class="math">\[P(\theta | Y) = \frac{P(Y|\theta)P(\theta)}{P(Y)}\]</span></p>
 </section></section>
@@ -150,11 +142,10 @@
 <li>Sample <span class="math">\(Y^*\)</span> from the likelihood: <span class="math">\(P(Y|\theta^*)\)</span></li>
 <li>If <span class="math">\(Y^*\)</span> is equal to the observed data, keep <span class="math">\(\theta^*\)</span>, if not reject.</li>
 </ol>
-</section><section class="slide level2">
+<!-- ---------------------- -->
 
-<figure>
-<img src="./img/notime.jpg" />
-</figure>
+<!-- ![](./img/notime.jpg) -->
+
 </section><section class="slide level2">
 
 <h3 id="speeding-it-up">Speeding it up</h3>
@@ -167,38 +158,36 @@
 
 <h3 id="why-use-abc">Why use ABC?</h3>
 <p><br /></p>
-<p>Complicated likelihood</p>
+<p>Cases where we can simulate data, we know the data generating process, but might have difficulty writing down a likelihood.</p>
 </section></section>
 <section><section id="rcpp" class="titleslide slide level1"><h1>Rcpp</h1></section><section class="slide level2">
 
 <h3 id="basic-idea">Basic idea</h3>
 <p><br /></p>
-<p>Write code in C++, run in R</p>
+<p>Write code in C++, call from R</p>
 <p>Because C++ is faster than R</p>
-</section><section class="slide level2">
-
-<h3 id="is-rcpp-necessary">Is Rcpp necessary?</h3>
-<p><br /></p>
-<p>No but it makes things a bit easier</p>
+<p>Not a new concept but Rcpp makes this much easier</p>
 </section><section class="slide level2">
 
 <h3 id="how-scared-should-i-be-of-c">How scared should I be of C++?</h3>
 <p><br /></p>
 <ul>
-<li class="fragment">Equal signs, not assignment arrows</li>
-<li class="fragment">Semi-colons at the end of lines</li>
-<li class="fragment">Indexing starts at 0</li>
-<li class="fragment">Type definitions
-<ul>
-<li class="fragment">Integer, double, vectors</li>
-<li class="fragment">More power == More responsibility</li>
-</ul></li>
+<li>Equal signs, not assignment arrows</li>
+<li>Semi-colons at the end of lines</li>
+<li>Indexing starts at 0</li>
+<li>For loops have a different structure</li>
+<li>Type definitions</li>
 </ul>
 </section><section class="slide level2">
 
-<h3 id="example">Example</h3>
-<p>Simulation study</p>
+<h3 id="examples">Examples</h3>
+<ul>
+<li>Addition</li>
+<li>Fibonacci sequence</li>
+<li>Multiple functions</li>
+</ul>
 </section></section>
+<section><section id="abc-and-rcpp" class="titleslide slide level1"><h1>ABC and Rcpp</h1></section></section>
     </div>
   </div>
 

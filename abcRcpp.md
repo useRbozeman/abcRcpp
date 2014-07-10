@@ -8,15 +8,9 @@ Bayesian Analysis
 
 Model and Likelihood
 
-. . .
-
 ![](./img/model.png)
 
-. . .
-
 $$y = m * x + b$$
-
-. . .
 
 $$\mu = m * x + b$$
 
@@ -25,8 +19,6 @@ $$\mu = m * x + b$$
 Likelihood
 
 ![](./img/model.png)
-
-. . .
 
 $$y = \mu + \epsilon$$
 
@@ -74,7 +66,7 @@ $$P(\theta | Y) = \frac{P(Y|\theta)P(\theta)}{P(Y)}$$
 
 ----------------------
 
-### Posterior ###
+### Prior -> Posterior ###
 
 ![](./img/prior.png)
 
@@ -82,7 +74,7 @@ $$P(\theta | Y)$$
 
 ----------------------
 
-### Posterior ###
+### Prior -> Posterior ###
 
 ![](./img/posterior.png)
 
@@ -96,7 +88,7 @@ $$P(\theta | Y)$$
 
 ----------------------
 
-### Denominator ###
+### The Denominator ###
 <br />
 
 $$P(\theta | Y) = \frac{P(Y|\theta)P(\theta)}{P(Y)}$$
@@ -160,9 +152,9 @@ Reject when the sampled $Y$ does not equal the observed
 2. Sample $Y^*$ from the likelihood: $P(Y|\theta^*)$
 3. If $Y^*$ is equal to the observed data, keep $\theta^*$, if not reject.
 
-----------------------
+<!-- ---------------------- -->
 
-![](./img/notime.jpg)
+<!-- ![](./img/notime.jpg) -->
 
 ----------------------
 
@@ -179,7 +171,8 @@ Reject when the sampled $Y$ does not equal the observed
 
 <br />
 
-Complicated likelihood
+Cases where we can simulate data, we know the data generating process, but
+might have difficulty writing down a likelihood.
 
 Rcpp
 ====
@@ -190,17 +183,11 @@ Rcpp
 
 <br />
 
-Write code in C++, run in R
+Write code in C++, call from R
 
 Because C++ is faster than R
 
-----------------------
-
-### Is Rcpp necessary? ###
-
-<br />
-
-No but it makes things a bit easier
+Not a new concept but Rcpp makes this much easier
 
 ----------------------
 
@@ -208,15 +195,19 @@ No but it makes things a bit easier
 
 <br />
 
->- Equal signs, not assignment arrows
->- Semi-colons at the end of lines
->- Indexing starts at 0
->- Type definitions
-    - Integer, double, vectors
-    - More power == More responsibility
+- Equal signs, not assignment arrows
+- Semi-colons at the end of lines
+- Indexing starts at 0
+- For loops have a different structure
+- Type definitions
 
 ----------------------
 
-### Example ###
+### Examples ###
 
-Simulation study
+- Addition
+- Fibonacci sequence
+- Multiple functions
+
+ABC and Rcpp
+============

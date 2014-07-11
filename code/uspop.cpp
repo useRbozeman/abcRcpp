@@ -13,12 +13,14 @@ NumericMatrix growthFit(NumericVector data, double rmu, double rsig,
 {
         int i;
         int accept;
-        int n = 0;
+        int n = 0; // sample number
         NumericVector p(19);
         NumericMatrix theta(N, 2);
-        double r;
-        double K = 300;
+        double r;  // growth rate
+        double K;  // carrying capacity
 
+        // If it takes too long to find a sample that is accepted, then just
+        // quit
         int tries = 0, max = 1000000;
 
         p[0] = data[0];

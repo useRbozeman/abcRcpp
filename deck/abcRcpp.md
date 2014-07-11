@@ -211,3 +211,35 @@ Not a new concept but Rcpp makes this much easier
 
 ABC and Rcpp
 ============
+
+----------------------
+
+uspop data in R
+
+![](./img/uspop.png)
+
+----------------------
+
+### Proportional Growth ###
+
+<br />
+
+$$\frac{dp}{dt} = rp$$
+
+<br />
+
+$$p = p_0 e ^ {rt}$$
+
+----------------------
+
+### Logistic growth function ###
+
+<br />
+
+$$\frac{dp}{dt} = \frac{rp(K - p)}{K}$$
+
+<br />
+
+$$p = \frac{K}{1 + (K / p_0 - 1) e^ {- r t}}$$
+
+

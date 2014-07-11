@@ -1,3 +1,5 @@
+plot(uspop)
+
 us_pop <- as.numeric(uspop)
 
 require(Rcpp)

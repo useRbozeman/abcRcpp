@@ -36,7 +36,7 @@ NumericMatrix growthFit(NumericVector data, double rmu, double rsig,
                         // p[i] = (1 + (k * y - 1) / y ) * p[i - 1];
                         p[i] = p[i - 1] * (1 + r * (K - p[i - 1]) / K);
 
-                        // p[i] += R::rnorm(0, sqrt(p[i]));
+                        p[i] += R::rnorm(0, sqrt(p[i]));
 
 
                         if ( !closeEnough(p[i], data[i], perc) )
@@ -68,7 +68,7 @@ NumericMatrix growthFit(NumericVector data, double rmu, double rsig,
 
 int closeEnough(double x, double y, double perc)
 {
-        if ( (x > (1 - perc) * y) & (x < (1 + perc) *y) )
+        if ( (x > (1 - perc) * y) && (x < (1 + perc) *y) )
         {
                 return 1;
         } else {
